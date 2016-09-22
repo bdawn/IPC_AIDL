@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.util.Log;
 
 /**
+ *
  * Created by gxlu on 2016/8/26.
  */
 public class User implements Parcelable {
@@ -22,7 +23,6 @@ public class User implements Parcelable {
         userId = in.readString();
 
         userName = in.readString();
-        Log.i("User","User:" + in.toString());
     }
 
     public String toString(){
@@ -55,6 +55,5 @@ public class User implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(userId);
         dest.writeString(userName);
-        Log.i("User","writeToParcel:" + dest.toString());
     }
 }

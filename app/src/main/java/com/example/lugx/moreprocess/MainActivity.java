@@ -9,7 +9,6 @@ import android.view.View;
 
 import com.example.lugx.aidl.IComputePlus;
 import com.example.lugx.aidl.IUserManager;
-import com.example.lugx.aidl.OnNewUserComeListener;
 import com.example.lugx.aidl.User;
 
 public class MainActivity extends AppCompatActivity {
@@ -69,16 +68,5 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
     }
-
-    OnNewUserComeListener listener = new OnNewUserComeListener.Stub() {
-        @Override
-        public void newUserCome(User user) throws RemoteException {
-            Log.i(TAG,user.toString());
-        }
-
-    };
-
-
 }
