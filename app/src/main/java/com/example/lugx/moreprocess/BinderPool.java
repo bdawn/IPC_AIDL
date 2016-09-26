@@ -14,6 +14,7 @@ import com.example.lugx.moreprocess.service.MyService;
 import java.util.concurrent.CountDownLatch;
 
 /**
+ * Binder连接池
  * Created by gxlu on 2016/9/21.
  */
 public class BinderPool {

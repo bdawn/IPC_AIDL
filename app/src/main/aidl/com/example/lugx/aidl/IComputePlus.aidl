@@ -6,8 +6,5 @@ import com.example.lugx.aidl.User;
 
 interface IComputePlus {
 
-
     int plus(in int a,in int b);
-
-    String getUserName(in User user);
 }

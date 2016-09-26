@@ -11,7 +11,7 @@ import java.util.List;
  *
  * Created by gxlu on 2016/9/22.
  */
-public class IUserManager extends com.example.lugx.aidl.IUserManager.Stub {
+public class IUserManagerImpl extends com.example.lugx.aidl.IUserManager.Stub {
 
     List<User> users = new ArrayList<>();
     @Override
@@ -21,7 +21,6 @@ public class IUserManager extends com.example.lugx.aidl.IUserManager.Stub {
 
     @Override
     public List<User> getUsers() throws RemoteException {
-        users.add(new User("aa","bb"));
         return users;
     }
 
