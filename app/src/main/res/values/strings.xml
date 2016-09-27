@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MoreProcess</string>
+
+    <!--user activity-->
+    <string name="add_new_user">新增用户</string>
+    <string name="num_current_user">当前用户数量：</string>
+
+    <!--compute activity-->
+    <string name="next_activity">nextActivity</string>
+    <string name="plus">+</string>
+    <string name="equal_sign">=</string>
 </resources>

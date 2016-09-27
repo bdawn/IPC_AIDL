@@ -1,6 +1,7 @@
 package com.example.lugx.moreprocess;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.os.Bundle;
@@ -13,8 +14,8 @@ import com.example.lugx.aidl.IComputePlus;
 import com.example.lugx.aidl.IUserManager;
 import com.example.lugx.aidl.User;
 
-public class MainActivity extends Activity {
-    public static final String TAG = MainActivity.class.getName();
+public class UserActivity extends Activity {
+    public static final String TAG = UserActivity.class.getName();
     IUserManager userManager;
     IComputePlus computePlus;
 
@@ -30,12 +31,10 @@ public class MainActivity extends Activity {
             @Override
             public void run() {
                 super.run();
-                binderPool = BinderPool.getInstance(MainActivity.this);
+                binderPool = BinderPool.getInstance();
             }
         }.start();
 
-        etA = (EditText) findViewById(R.id.et_a);
-        etB = (EditText) findViewById(R.id.et_b);
     }
 
     public void onClick(View view) {
@@ -58,20 +57,11 @@ public class MainActivity extends Activity {
                     e.printStackTrace();
                 }
                 break;
-            case R.id.bt_result:
-                if (computePlus == null){
-                    IBinder binder = binderPool.getBinder(BinderPool.COMPUTE_PLUS);
-                    computePlus = IComputePlus.Stub.asInterface(binder);
-                }
-                int a = Integer.valueOf(etA.getText().toString());
-                int b = Integer.valueOf(etB.getText().toString());
-                try {
-                    Log.i(TAG,"1+2=" + computePlus.plus(1,2));
-                    ((TextView)findViewById(R.id.tv_result))
-                            .setText(String.valueOf(computePlus.plus(a,b)));
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
+
+            case R.id.btn_nex_activity:
+
+                Intent it = new Intent(UserActivity.this,ComputeActivity.class);
+                startActivity(it);
                 break;
 
         }

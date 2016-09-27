@@ -18,10 +18,10 @@ import java.util.concurrent.CountDownLatch;
  * Created by gxlu on 2016/9/21.
  */
 public class BinderPool {
+    private static final String TAG = "BinderPool";
 
     public static final int USER_MANAGER = 0;
     public static final int COMPUTE_PLUS = 1;
-    private static final String TAG = "BinderPool";
 
     private static BinderPool instance;
     IAIDLManager aidlManager;
@@ -29,28 +29,26 @@ public class BinderPool {
     //同步处理
     private CountDownLatch mCountDownLatch;
 
-    Context context;
+    Context mContext;
 
 
     private BinderPool(Context context){
-        this.context = context;
+        this.mContext = context;
         bindService();
-
     }
 
-    public static BinderPool getInstance(Context context){
+    public static BinderPool getInstance(){
         if (instance == null){
-            instance = new BinderPool(context);
+            instance = new BinderPool(MyApplication.getInstance());
         }
-
         return instance;
     }
 
     private synchronized void bindService(){
         mCountDownLatch = new CountDownLatch(1);
         Intent intent = new Intent();
-        intent.setClass(context,MyService.class);
-        context.bindService(intent,mConnection, Context.BIND_AUTO_CREATE);
+        intent.setClass(mContext,MyService.class);
+        mContext.bindService(intent,mConnection, Context.BIND_AUTO_CREATE);
 
         try {
             mCountDownLatch.await();
@@ -85,7 +83,7 @@ public class BinderPool {
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-
+            Log.w(TAG,"onServiceDisconnected");
         }
     };
 
