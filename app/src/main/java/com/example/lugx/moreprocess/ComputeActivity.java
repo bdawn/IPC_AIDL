@@ -18,7 +18,6 @@ public class ComputeActivity extends AppCompatActivity {
     public static final String TAG = "ComputeActivity";
 
     IComputePlus computePlus;
-
     BinderPool binderPool;
 
     EditText etA,etB;

@@ -57,9 +57,7 @@ public class UserActivity extends Activity {
                     e.printStackTrace();
                 }
                 break;
-
             case R.id.btn_nex_activity:
-
                 Intent it = new Intent(UserActivity.this,ComputeActivity.class);
                 startActivity(it);
                 break;

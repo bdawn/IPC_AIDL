@@ -31,7 +31,6 @@ public class BinderPool {
 
     Context mContext;
 
-
     private BinderPool(Context context){
         this.mContext = context;
         bindService();

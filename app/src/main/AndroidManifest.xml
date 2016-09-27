@@ -22,7 +22,6 @@
         </activity>
         <activity
             android:name=".ComputeActivity"/>
-
         <service
             android:name=".service.MyService"
             android:process=":remote" />
